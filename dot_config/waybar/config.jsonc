@@ -95,6 +95,7 @@
     "memory": {
         "format": "{}% "
     },
+
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -118,10 +119,12 @@
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
+	"format-time":"{H}h{m}",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+	"expand":true
     },
     "battery#bat2": {
         "bat": "BAT2"
