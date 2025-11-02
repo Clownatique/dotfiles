@@ -8,6 +8,7 @@ environment {
 include "layout.kdl"
 include "startup.kdl"
 include "shortcut.kdl"
+include "theme/current.kdl"
 
 
 input {
