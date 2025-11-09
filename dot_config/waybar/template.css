@@ -1,0 +1,33 @@
+window#waybar {
+    background-color: rgba(142,48, 134, 0.5);
+    border-bottom: 3px solid rgb(142,48,134); 
+}
+
+workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+}
+
+#clock,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#idle_inhibitor,
+#power-profiles-daemon {
+    color: #ffffff;
+}
+
+

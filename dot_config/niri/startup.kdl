@@ -1,0 +1,6 @@
+spawn-sh-at-startup "export QT_QPA_PLATFORMTHEME=qt6ct"
+spawn-sh-at-startup "WOBSOCK=$XDG_RUNTIME_DIR/wob.sock"
+spawn-sh-at-startup "tail -f $WOBSOCK | wob &"
+spawn-sh-at-startup "swww-daemon"
+spawn-sh-at-startup "swww img .config/wallpaper/rose/vert.jpg"
+

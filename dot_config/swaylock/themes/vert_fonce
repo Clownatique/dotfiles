@@ -1,0 +1,14 @@
+#F4DAF2 EC80E3 CB3BBF 8E3086 
+#FFF9E4 FFE38A FFD44A D1B046 
+#DAF4EA 7FEBC2 3BCB95 308D6A
+#input
+key-hl-color=ffe38a
+line-color=8e3086
+ring-color=ec80e3
+inside-color=f4daf2
+# verifying
+line-ver-color=d1b046
+ring-ver-color=daf4ea
+inside-ver-color=7febc2
+#imagebackground
+image=~/.config/wallpapers/current-blurred.jpg

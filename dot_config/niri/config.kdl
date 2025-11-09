@@ -3,12 +3,13 @@ environment {
     DISPLAY "0"
     EDITOR "vim"
     WOBSOCK "/run/user/1000/wob.sock"
+    couleur "#F4DAF2 EC80E3 CB3BBF 8E3086 \n#FFF9E4 FFE38A FFD44A D1B046 \n#DAF4EA 7FEBC2 3BCB95 308D6A"
 }
 
 include "layout.kdl"
 include "startup.kdl"
 include "shortcut.kdl"
-include "theme/current.kdl"
+include "themes/current.kdl"
 
 
 input {
@@ -153,28 +154,18 @@ animations {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
+  match app-id="anki"
+  default-column-display "tabbed"
+}
+
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
@@ -186,8 +177,8 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
+window-rule {
+    geometry-corner-radius 5
     clip-to-geometry true
 }
 

@@ -1,0 +1,12 @@
+binds {
+    Mod+A  { spawn "bemoji";}
+    Mod+Z  { spawn-sh "~/.config/niri/colorswitcher.sh";}
+    Mod+E  { spawn "dolpgin";}
+    Mod+Space   { spawn "firefox";}
+    Mod+T  { spawn "alacritty";}
+    Mod+D  { spawn-sh "wofi --show drun" ;}
+    Mod+Alt+L  { spawn "swaylock";}
+    Mod+ampersand { spawn-sh "chromium --app=https://web.whatsapp.com";}
+    Mod+eacute{ spawn-sh "chromium --app=https://";}
+    //Mod+quoted{ spawn-sh "chromium --app=https://";}
+}
