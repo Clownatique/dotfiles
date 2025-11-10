@@ -1,0 +1,21 @@
+#F4DAF2 EC80E3 CB3BBF 8E3086 
+#FFF9E4 FFE38A FFD44A D1B046 
+#DAF4EA 7FEBC2 3BCB95 308D6A
+
+[colors]
+  cursor = { text = "#8e3086", cursor = "#f4daf2" }
+  selection = { background = "#D1B046", text = "#f4daf2" }
+
+  [colors.primary]
+    background = "#8E3086"
+    foreground = "#ffffff"
+  [colors.normal]
+black = "#989898"      # Brightened black (gray)
+red = "#ff5c5c"        # Brightened and saturated red
+green = "#b4d169"      # Brightened and saturated green
+yellow = "#ffda9a"     # Brightened and saturated yellow
+blue = "#9bd5e1"       # Brightened and saturated blue
+magenta = "#d89ace"    # Brightened and saturated magenta
+cyan = "#a8e4e4"       # Brightened and saturated cyan
+white = "#ffffff"       # Pure white
+

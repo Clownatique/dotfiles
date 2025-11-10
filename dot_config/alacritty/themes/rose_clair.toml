@@ -1,0 +1,27 @@
+[colors]
+
+  cursor = { text = "#f4daf2", cursor = "#8e3086" }
+  selection = { background = "#D1B046", text = "#8e3086" }
+
+  [colors.primary]
+    background = "#EB7FE2"
+    foreground = "#111111"
+   [colors.normal]
+black = "#0d0d0d"      
+red = "#a31d1d"        
+green = "#4c7630"      
+yellow = "#b38b2c"     
+blue = "#007B8D"       
+magenta = "#8f5d87"    
+cyan = "#007f7f"       
+white = "#a6a6a6"      
+  [colors.bright]
+
+black = "#2e2e2e"      
+red = "#a52e2e"        
+green = "#7f9e2e"      
+yellow = "#c78e3d"     
+blue = "#5d9ca6"       
+magenta = "#a5648e"    
+cyan = "#6ed5d5"       
+white = "#e6e6e6"      

@@ -1,0 +1,2 @@
+playerctl pause
+swaylock

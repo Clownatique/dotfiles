@@ -1,6 +1,6 @@
 environment {
     QT_QPA_PLATFORMTHEME "qt6ct"
-    DISPLAY "0"
+    DISPLAY ":0"
     EDITOR "vim"
     WOBSOCK "/run/user/1000/wob.sock"
     couleur "#F4DAF2 EC80E3 CB3BBF 8E3086 \n#FFF9E4 FFE38A FFD44A D1B046 \n#DAF4EA 7FEBC2 3BCB95 308D6A"
@@ -15,20 +15,12 @@ include "themes/current.kdl"
 input {
     keyboard {
         xkb {
-           // layout "us,ru"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
+            layout "fr,us,it"
         }
-        // Enable numlock on startup, omitting this setting disables it.
-        numlock
+        numlock //automatically enable numlock
     }
 
     // Next sections include libinput settings.
-    // Omitting settings disables them, or leaves them at their default values.
-    // All commented-out settings here are examples, not defaults.
     touchpad {
         // off
         tap
@@ -76,85 +68,41 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
-    // Uncomment this line to disable this output.
-    // off
-
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
-
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
-
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=1280 y=0
-}
-
 // Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Layout
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-
-// This line starts waybar, a commonly used bar for Wayland compositors.
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 hotkey-overlay {
-    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
-
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-// This option will also fix border/focus ring drawing behind some semitransparent windows.
-// After enabling or disabling this, you need to restart the apps for this to take effect.
+switch-events {
+    lid-close { spawn "playerctl" "pause" ;}
+    lid-open { spawn "swaylock";}
+}
 prefer-no-csd
 
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
+workspace "chat"
 
-// Animation settings.
-// The wiki explains how to configure individual animations:
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }
 
-// Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Window-Rules
+window-rule {
+    match app-id="^gimp" title="^Lancement de GIMP$"
+    open-focused false
+}
 
-// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    match app-id="^blender$"
+    match app-id="^gimp"
+    default-column-width { fixed 1200; }
+}
+
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
@@ -163,6 +111,26 @@ window-rule {
 window-rule {
   match app-id="anki"
   default-column-display "tabbed"
+}
+
+/-window-rule{
+  match app-id="Alacritty"
+  open-floating true
+}
+
+window-rule{
+  match app-id="vesktop"
+  open-maximized true
+  open-on-workspace "chat"
+}
+window-rule{
+  match app-id="thunderbird"
+  open-maximized true
+  open-on-workspace "chat"
+}
+window-rule{
+  match app-id="org.kde.kdeconnect.handler"
+  open-floating true
 }
 
 window-rule {
@@ -175,8 +143,6 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
 window-rule {
     geometry-corner-radius 5
     clip-to-geometry true

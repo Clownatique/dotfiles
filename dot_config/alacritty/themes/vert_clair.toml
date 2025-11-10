@@ -1,0 +1,30 @@
+#F4DAF2 EC80E3 CB3BBF 8E3086 
+#FFF9E4 FFE38A FFD44A D1B046 
+#DAF4EA 7FEBC2 3BCB95 308D6A
+
+[colors]
+  cursor = { text = "#ffffff", cursor = "#308d6a" }
+  selection = { background = "#D1B046", text = "#f4daf2" }
+
+  [colors.primary]
+    background = "#daf4ea"
+    foreground = "#000000"
+   [colors.normal]
+black = "#0d0d0d"      
+red = "#a31d1d"        
+green = "#4c7630"      
+yellow = "#b38b2c"     
+blue = "#007B8D"       
+magenta = "#8f5d87"    
+cyan = "#007f7f"       
+white = "#a6a6a6"      
+  [colors.bright]
+
+black = "#2e2e2e"      
+red = "#a52e2e"        
+green = "#7f9e2e"      
+yellow = "#c78e3d"     
+blue = "#5d9ca6"       
+magenta = "#a5648e"    
+cyan = "#6ed5d5"       
+white = "#e6e6e6"      

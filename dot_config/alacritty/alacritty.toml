@@ -1,12 +1,14 @@
+[general]
+  import = [
+    "themes/current.toml"
+  ]
+
 [font]
-	normal = { family = "FiraCodeNerdFont", style = "Regular" }
+	normal = { family = "Fira Code", style = "Regular" }
 
 [window]
   dynamic_title = true
-  opacity = 0.90
-[colors]
-  [colors.primary]
-    background = "#EB7FE2"
-    foreground = "#111111"
+  opacity = 0.95
+  blur = true
 
 
