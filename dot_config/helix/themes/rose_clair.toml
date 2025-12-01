@@ -1,114 +1,43 @@
-attribute = "lilac"
-keyword = "almond"
-"keyword.directive" = "lilac" # -- preprocessor comments (#if in C)
-namespace = "lilac"
-punctuation = "lavender"
-"punctuation.delimiter" = "lavender"
-operator = "lilac"
-special = "honey"
-"variable.other.member" = "white"
-variable = "lavender"
-# variable = "almond" # TODO: metavariables only
-# "variable.parameter" = { fg = "lavender", modifiers = ["underlined"] }
-"variable.parameter" = { fg = "lavender" }
-"variable.builtin" = "mint"
-type = "white"
-"type.builtin" = "white" # TODO: distinguish?
-constructor = "lilac"
-function = "white"
-"function.macro" = "lilac"
-"function.builtin" = "white"
-tag = "almond"
-comment = "sirocco"
-constant = "white"
-"constant.builtin" = "white"
-string = "silver"
-"constant.numeric" = "chamois"
-"constant.character.escape" = "honey"
-# used for lifetimes
-label = "honey"
-tabstop = { modifiers = ["italic"], bg = "bossanova" }
+# UI ==============================
+# For styling helix itself.
 
-"markup.heading" = "lilac"
-"markup.bold" = { modifiers = ["bold"] }
-"markup.italic" = { modifiers = ["italic"] }
-"markup.strikethrough" = { modifiers = ["crossed_out"] }
-"markup.link.url" = { fg = "silver", modifiers = ["underlined"] }
-"markup.link.text" = "almond"
-"markup.raw" = "almond"
+'ui.background' = { } # Default background color.
+'ui.window' = { } # Window border between splits.
+'ui.gutter' = { } # Left gutter for diagnostics and breakpoints.
 
-"diff.plus" = "#35bf86"
-"diff.minus" = "#f22c86"
-"diff.delta" = "#6f44f0"
+'ui.text' = { } # Default text color.
+'ui.text.focus' = { } # Selection highlight in buffer-picker or file-picker.
+'ui.text.info' = { } # Info popup contents (space mode menu).
 
-# TODO: differentiate doc comment
-# concat (ERROR) @error.syntax and "MISSING ;" selectors for errors
+'ui.cursor' = { } # Fallback cursor colour, non-primary cursors when there are multiple (shift-c).
+'ui.cursor.primary' = { } # The primary cursor when there are multiple (shift-c).
+'ui.cursor.insert' = { } # The cursor in insert mode (i).
+'ui.cursor.select' = { } # The cursor in select mode (v).
+'ui.cursor.match' = { } # The matching parentheses of that under the cursor.
 
-"ui.background" = { bg = "midnight" }
-"ui.background.separator" = { fg = "comet" }
-"ui.linenr" = { fg = "comet" }
-"ui.linenr.selected" = { fg = "lilac" }
-"ui.statusline" = { fg = "lilac", bg = "revolver" }
-"ui.statusline.inactive" = { fg = "lavender", bg = "revolver" }
-"ui.popup" = { bg = "revolver" }
-"ui.window" = { fg = "bossanova" }
-"ui.help" = { bg = "#7958DC", fg = "#171452" }
-"ui.text" = { fg = "lavender" }
-"ui.text.focus" = { fg = "white" }
-"ui.text.inactive" = "sirocco"
-"ui.text.directory" = { fg = "lilac" }
-"ui.virtual" = { fg = "comet" }
-"ui.virtual.ruler" = { bg = "bossanova" }
-"ui.virtual.jump-label" = { fg = "apricot", modifiers = ["bold"] }
+'ui.selection' = { } # All currently selected text.
+'ui.selection.primary' = { } # The primary selection when there are multiple.
 
-"ui.virtual.indent-guide" = { fg = "comet" }
+'ui.linenr' = { } # Line numbers.
+'ui.linenr.selected' = { } # Current line number.
 
-"ui.selection" = { bg = "#540099" }
-"ui.selection.primary" = { bg = "#540099" }
-# TODO: namespace ui.cursor as ui.selection.cursor?
-"ui.cursor.select" = { bg = "delta" }
-"ui.cursor.insert" = { bg = "white" }
-"ui.cursor.primary.select" = { bg = "delta" }
-"ui.cursor.primary.insert" = { bg = "white" }
-"ui.cursor.match" = { fg = "#212121", bg = "#6C6999" }
-"ui.cursor" = { modifiers = ["reversed"] }
-"ui.cursorline.primary" = { bg = "bossanova" }
-"ui.highlight" = { bg = "bossanova" }
-"ui.highlight.frameline" = { bg = "#634450" }
-"ui.debug" = { fg = "#634450" }
-"ui.debug.breakpoint" = { fg = "apricot" }
-"ui.menu" = { fg = "lavender", bg = "revolver" }
-"ui.menu.selected" = { fg = "revolver", bg = "white" }
-"ui.menu.scroll" = { fg = "lavender", bg = "comet" }
+'ui.virtual' = { } # Namespace for additions to the editing area.
+'ui.virtual.ruler' = { } # Vertical rulers (colored columns in editing area).
+'ui.virtual.whitespace' = { } # Whitespace markers in editing area.
 
-"diagnostic.hint" = { underline = { color = "silver", style = "curl" } }
-"diagnostic.info" = { underline = { color = "delta", style = "curl" } }
-"diagnostic.warning" = { underline = { color = "lightning", style = "curl" } }
-"diagnostic.error" = { underline = { color = "apricot", style = "curl" } }
-"diagnostic.unnecessary" = { modifiers = ["dim"] }
-"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+'ui.statusline' = { } # Status line.
+'ui.statusline.active' = { } # Status line in focused windows.
+'ui.statusline.inactive' = { } # Status line in unfocused windows.
+"ui.statusline.normal" = { } # Statusline mode during normal mode (only if editor.color-modes is enabled)
+"ui.statusline.insert" = { } # Statusline mode during insert mode (only if editor.color-modes is enabled)
+"ui.statusline.select" = { } # Statusline mode during select mode (only if editor.color-modes is enabled)
 
-warning = "lightning"
-error = "apricot"
-info = "delta"
-hint = "silver"
+'ui.help' = { } # `:command` descriptions above the command line.
 
-[palette]
-white = "#ffffff"
-lilac = "#dbbfef"
-lavender = "#a4a0e8"
-comet = "#5a5977"
-bossanova = "#452859"
-midnight = "#3b224c"
-revolver = "#281733"
+'ui.highlight' = { } # selected contents of symbol pickers (spc-s, spc-S) and current line in buffer picker (spc-b).
 
-silver = "#cccccc"
-sirocco = "#697C81"
-mint = "#9ff28f"
-almond = "#eccdba"
-chamois = "#E8DCA0"
-honey = "#efba5d"
+'ui.menu' = { } # Autocomplete menu.
+'ui.menu.selected' = { } # Selected autocomplete item.
 
-apricot = "#f47868"
-lightning = "#ffcd1c"
-delta = "#6F44F0"
+'ui.popup' = { } # Documentation popups (space-k).
+'ui.popup.info' = { } # Info popups box (space mode menu).

@@ -3,9 +3,9 @@
 #DAF4EA 7FEBC2 3BCB95 308D6A*/
 
 window#waybar {
-    background-color: #8e3086;
-    border-bottom: 3px solid #cb3bbf;
-    color:white;
+    background-color: #3bcb95;
+    border-bottom: 3px solid #7febc2;
+    color:black;
 }
 
 workspaces button {
@@ -35,7 +35,7 @@ workspaces button {
 #mode,
 #idle_inhibitor,
 #power-profiles-daemon {
-    border-bottom: 3px solid #cb3bbf;
-    background-color:#cb3bbf;
+    border-bottom: 3px solid #7febc2;
+    background-color: #daf4ea;
 }
 

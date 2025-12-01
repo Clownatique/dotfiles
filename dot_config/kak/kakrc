@@ -1,0 +1,88 @@
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+
+
+plug "andreyorst/plug.kak" noload
+plug 'delapouite/kakoune-palette'
+plug "andreyorst/powerline.kak" defer powerline_gruvbox %{
+    powerline-theme gruvbox
+} config %{
+    powerline-start
+}
+plug "basbebe/pandoc.kak" %{}
+plug "lePerdu/kakboard" %{
+    hook global WinCreate .* %{ kakboard-enable }
+}
+plug "andreyorst/kaktree" defer kaktree %{
+    set-option global kaktree_double_click_duration '0.5'
+    set-option global kaktree_indentation 1
+    set-option global kaktree_dir_icon_open  '▾ 🗁 '
+    set-option global kaktree_dir_icon_close '▸ 🗀 '
+    set-option global kaktree_file_icon      '⠀⠀🖺'
+} config %{
+    hook global WinSetOption filetype=kaktree %{
+        remove-highlighter buffer/numbers
+        remove-highlighter buffer/matching
+        remove-highlighter buffer/wrap
+        remove-highlighter buffer/show-whitespaces
+    }
+    kaktree-enable
+    kaktree-toggle
+}
+plug "eko234/git-konflict.kak" config %{
+  declare-user-mode konflict
+  map global user K ': enter-user-mode konflict<ret>'
+  map global konflict s ': konflict-start<ret>'
+  map global konflict j ': konflict-use-mine<ret>'
+  map global konflict k ': konflict-use-yours<ret>'
+  map global konflict J ': konflict-use-mine-then-yours<ret>'
+  map global konflict K ': konflict-use-yours-then-mine<ret>'
+  map global konflict d ': konflict-use-none<ret>'
+}
+
+eval %sh{kak-lsp}
+lsp-enable
+hook -group lsp-filetype-clangd global BufSetOption filetype=(?:c|cpp) %{
+    set-option buffer lsp_servers %{
+        [clangd]
+        args = ["--log=error"]
+        root_globs = ["compile_commands.json", ".clangd", ".git", ".hg"]
+    }
+}
+
+hook -group lsp-filetype-python global BufSetOption filetype=python %{
+    set-option buffer lsp_servers %{
+        [pylsp]
+        root_globs = ["pyproject.toml", "setup.py", "poetry.lock", ".git", ".hg"]
+        settings_section = "_"
+        [pylsp.settings._]
+        # See https://github.com/python-lsp/python-lsp-server#configuration
+        # pylsp.configurationSources = ["flake8"]
+        pylsp.plugins.jedi_completion.include_params = true
+    }
+    # set-option buffer lsp_servers %{
+    #     [pyright-langserver]
+    #     root_globs = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json", ".git", ".hg"]
+    #     args = ["--stdio"]
+    # }
+    # set-option -add buffer lsp_servers %{
+    #     [ruff]
+    #     args = ["server", "--quiet"]
+    #     root_globs = ["pyproject.toml", "setup.py", "poetry.lock", ".git", ".hg"]
+    #     settings_section = "_"
+    #     [ruff.settings._.globalSettings]
+    #     organizeImports = true
+    #     fixAll = true
+    # }
+}
+
+
+map global user l ':enter-user-mode lsp<ret>' -docstring 'LSP mode'
+
+map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
+map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
+map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
+map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
+map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'

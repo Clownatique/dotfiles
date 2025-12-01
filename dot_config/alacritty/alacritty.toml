@@ -10,5 +10,4 @@
   dynamic_title = true
   opacity = 0.95
   blur = true
-
-
+  padding = {x=1,y=1}

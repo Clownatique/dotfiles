@@ -1,8 +1,27 @@
-theme = "rose_clair"
+theme = "everforest_light"
+
+[keys.normal]
+"C-right" = "goto_next_buffer"
+"C-left" = "goto_previous_buffer"
+"C-o" = "file_explorer_in_current_buffer_directory"
+"C-tab" = "buffer_picker"
+"C-f" = "search"
+"C-t" = ":new"
+"C-p" = ":config-open"
+"C-w" = ":buffer-close"
+"C-S-w" = ":buffer-close!"
 
 [editor]
 line-number = "relative"
 mouse = true
+end-of-line-diagnostics = "hint"
+popup-border = "all"
+trim-final-newlines = true
+trim-trailing-whitespace = true
+bufferline  = "always"
+clipboard-provider ="wayland"
+auto-pairs = true
+rulers = [80]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -10,4 +29,44 @@ normal = "block"
 select = "underline"
 
 [editor.file-picker]
+max-depth = 3
 hidden = false
+ignore = true
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "all"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
+
+[editor.inline-diagnostics]
+cursor-line = "disable"
+other-lines = "disable"
+
+[editor.statusline]
+left = ["mode", "spinner","selections"]
+center = ["file-name"]
+right = ["diagnostics", "position", "position-percentage", "file-encoding", "version-control","file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+diagnostics = ["warning", "error"]
+workspace-diagnostics = ["warning", "error"]
+
+
+[editor.lsp]
+enable = true
+display-progress-messages = true
+snippets = true

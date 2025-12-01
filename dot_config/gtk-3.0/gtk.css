@@ -27,7 +27,7 @@
 
 
 @define-color tooltip_text_breeze #232629;
-@define-color tooltip_background_breeze red;
+@define-color tooltip_background_breeze #ffe38a;
 @define-color tooltip_border_breeze #cdcdce;
 /*
 * Misc
