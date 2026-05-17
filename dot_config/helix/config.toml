@@ -1,0 +1,88 @@
+theme = "boo_berry"
+
+[editor]
+mouse = false
+bufferline =  "always"
+popup-border = "all"
+clipboard-provider = "wayland"
+true-color = true
+rulers = [80]
+line-number = "relative"
+# auto-info = false
+color-modes = true # pour mettre une couleur au depends des modes
+
+[editor.statusline]
+left = ["mode", "spinner", "position-percentage","separator","position"]
+#"file-indent-style"
+center = ["version-control","file-name","read-only-indicator", "file-modification-indicator"]
+#,"file-indent-style"]
+# devrait faire comme ca: par rapport a lediteur au left, center fichier, right projet
+right = ["version-control"]
+separator = "|"
+
+[editor.lsp]
+enable = true
+display-progress-messages = true
+snippets = true
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout= 5000
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+"C-l" = "goto_next_buffer"
+"C-h" = "goto_previous_buffer"
+"A-o" = "file_picker_in_current_buffer_directory"
+"A-tab" = "buffer_picker"
+"A-f" = "search"
+"A-t" = ":new"
+"A-p" = ":config-open"
+"A-w" = ":buffer-close"
+"A-S-w" = ":buffer-close!"
+"A-ret" = ":append-output ocaml"
+"C-S-v" = "paste_clipboard_after"
+"C-S-C" = "yank_main_selection_to_clipboard"
+"C-F" = ":buffer-close"
+"C-ret" = ':noop %sh{sh $HOME/.config/helix/compil.sh %{language} ${buffer_name} $(tmux display-message -p "#S,#I" )}'
+# envoie le num de la session + index de la fenetre
+# le probleme c que buffer_name renvoie le nom du fichier relativement a ou a été lancé helix (donc nul)
+
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+ignore = true
+max-depth = 2
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "all"
+
+[editor.inline-diagnostics]
+cursor-line = "disable"
+other-lines = "disable"
+
+

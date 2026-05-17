@@ -1,0 +1,50 @@
+[[language]]
+name = "markdown"
+auto-format = true
+language-servers = ["marksman"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
+
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
+
+[language-server.emmet-lsp.config]
+includeLanguages = {}
+
+[[language]]
+name = "html"
+language-servers = [{ name = "superhtml", except-features = ["format"] }, "vscode-html-language-server", "emmet-lsp"]
+auto-format = true
+
+[[language]]
+name = "cpp"
+indent = { tab-width = 4, unit = "    " }
+roots = [".git", "CMakeLists.txt"]
+
+[language-server.clangd]
+args = ["--enable-config"]
+command = "clangd"
+
+[language.auto-pairs]
+'/' = '/' #je commente plus mon code que ce que je fais des divisions...
+
+# [[language]]
+# name = "latex"
+
+# [language.config.texlab.build]
+# onSave = true
+# forwardSearchAfter = true
+
+# [language.config.texlab.forwardSearch]
+# executable = "zathura"
+# args = [ "--synctex-forward", "%l:1:%f", "%p" ]
+
+# [language.config.texlab.chktex]
+[[language]]
+name = "ocaml"
+auto-format = true
+formatter = { command = "ocamlformat", args = [
+  "-",
+  "--impl",
+  # "--enable-outside-detected-project", # Enable only if you want to format files outside of projects
+] }# onEdit = true
