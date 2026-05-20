@@ -1,0 +1,31 @@
+{ config, pkgs, ... }:
+
+
+{
+  imports = [
+    "/home/nestor/.config/nix/system.nix" # ill probably need to modularize this a bit 
+    # "locale.nix",
+    "/home/nestor/.config/nix/desktop-environment.nix" # all software and tweaks necessary to have a sleek workflow
+    "/home/nestor/.config/nix/dev-tools.nix" # if i have to develop
+    "/home/nestor/.config/nix/browsing.nix" # basic stuff to consume any media 
+    "/home/nestor/.config/nix/tinkering.nix" # anything that helps me build thing in real word
+    # "/home/nestor/.config/nix/entertainment.nix" # all the games i 
+    "/home/nestor/.config/nix/creative.nix" # any piece of software that helps me putting my ideas into byte
+  ];
+
+  environment.systemPackages = with pkgs; [
+     git
+     foot
+     gcc
+     clang_20
+     ocaml
+     chezmoi
+     usbutils
+     prismlauncher
+     jre25_minimal
+     rpi-imager
+  ];
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+}
