@@ -38,9 +38,19 @@ window-rule {
     block-out-from "screen-capture"
 }
 
+// window-rule {
+//     geometry-corner-radius 0
+//     clip-to-geometry true
+// }
+
 window-rule {
-    geometry-corner-radius 0
-    clip-to-geometry true
+    match app-id="^footclient$"
+    open-maximized true
+    background-effect {
+        blur true
+    }
+}
+window-rule {
 }
 
 environment {
