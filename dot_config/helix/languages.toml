@@ -48,3 +48,11 @@ formatter = { command = "ocamlformat", args = [
   "--impl",
   # "--enable-outside-detected-project", # Enable only if you want to format files outside of projects
 ] }# onEdit = true
+
+[[language]]
+name = "lua"
+file-types = ["lua", "tic"]
+
+[[language]]
+name = "nix"
+file-types = ["nix", "nix.tmpl"]
