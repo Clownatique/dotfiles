@@ -59,7 +59,6 @@ environment {
     EDITOR "hx"
     VISUAL "hx"
     PAGER "less"
-    PATH "/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/nestor/.local/bin:/home/nestor/.cargo/bin/:/home/nestor/.local/bin"
     WOBSOCK_VOL "/run/user/1000/wob_volume.sock"
     WOBSOCK_BRI "/run/user/1000/wob_bright.sock"
 }
