@@ -1,6 +1,7 @@
 spawn-sh-at-startup "swayidle -w timeout 500 'swaylock'"
 spawn-sh-at-startup "thunderbird"
 spawn-sh-at-startup "niri msg action focus-workspace-down"
+spawn-sh-at-startup "foot --server"
 
 window-rule {
     match app-id="^gimp" title="^Lancement de GIMP$"

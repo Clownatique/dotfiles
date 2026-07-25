@@ -1,12 +1,13 @@
 binds {
     Mod+Tab{spawn-sh "sh ~/.config/niri/scripts/project-wofi.sh";}
     Mod+A  { spawn "bemoji";}
-    Mod+Y { spawn-sh "alacritty --title Helix --command hx" ;}
+    Mod+Y { spawn-sh "footclient -- hx" ;}
     Mod+Z  { spawn-sh "~/.config/niri/colorswitcher.sh";}
-    Mod+E  { spawn-sh "wezterm -e yazi";}
+    Mod+E  { spawn-sh "footclient -- nnn";}
     Mod+Space   { spawn "firefox";}
-    Mod+T  { spawn "foot";}
-    Mod+D  { spawn-sh "fuzzel --hide-before-typing --lines 1";}
+    Mod+t  { spawn-sh "footclient -- tmux";}
+    Mod+Shift+T  { spawn "foot";}
+    Mod+D  { spawn-sh "fuzzel";}
     Mod+Alt+L  { spawn "swaylock";}
     Mod+ampersand { spawn-sh "chromium --app=https://web.whatsapp.com";}
     Mod+2 { spawn-sh "chromium --app=https://music.youtube.com";}
