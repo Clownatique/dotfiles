@@ -18,12 +18,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-window-rule {
     match app-id=r#"steam$"# title="^Friends List$"
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="org.kde.kdeconnect.handler"
     open-floating true
 }
 
@@ -31,21 +28,6 @@ window-rule {
   match app-id="anki"
   default-column-display "tabbed"
 }
-
-window-rule{
-  match app-id="org.kde.kdeconnect.handler"
-  open-floating true
-}
-
-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    block-out-from "screen-capture"
-}
-
-// window-rule {
-//     geometry-corner-radius 0
-//     clip-to-geometry true
-// }
 
 window-rule {
     match app-id="^footclient$"
@@ -55,9 +37,14 @@ window-rule {
     }
 }
 window-rule {
+    match app-id="^foot$"
+    open-floating true
+    default-column-width { proportion 0.75; }
+    default-window-height { fixed 500; }
 }
 
 environment {
+    // TODO: nixify this part !!
     QT_QPA_PLATFORMTHEME "qt6ct"
     DISPLAY ":1"
     EDITOR "hx"

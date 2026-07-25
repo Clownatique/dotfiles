@@ -1,21 +1,9 @@
 binds {
-    Mod+Tab{spawn-sh "sh ~/.config/niri/scripts/project-wofi.sh";}
-    Mod+A  { spawn "bemoji";}
     Mod+Y { spawn-sh "footclient -- hx" ;}
-    Mod+Z  { spawn-sh "~/.config/niri/colorswitcher.sh";}
     Mod+E  { spawn-sh "footclient -- nnn";}
     Mod+Space   { spawn "firefox";}
     Mod+t  { spawn-sh "footclient -- tmux";}
     Mod+Shift+T  { spawn "foot";}
     Mod+D  { spawn-sh "fuzzel";}
     Mod+Alt+L  { spawn "swaylock";}
-    Mod+ampersand { spawn-sh "chromium --app=https://web.whatsapp.com";}
-    Mod+2 { spawn-sh "chromium --app=https://music.youtube.com";}
-    Mod+quotedbl{ spawn-sh "chromium --app=https://drive.google.com";}
-    Mod+apostrophe{ spawn-sh "chromium --app=https://devdocs.io";}
-    Mod+parenleft{ spawn-sh "chromium --app=https://youtube.com";}
-    //minus
-    //egrave
-    //underscore
-    //ccedilla
 }

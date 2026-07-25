@@ -15,61 +15,26 @@ input {
         // off
         tap // effleurer fais cliquer
         dwt // disable-when-typing
-        // dwtp
-        // drag-off
         natural-scroll
-        // accel-speed 0.2
-        // left-handed
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
         middle-emulation
     }
 
     mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "no-scroll"
     }
 
     trackpoint {
         off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // scroll-button-lock
-        // middle-emulation
     }
 
     warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-// You can configure outputs by their name, which you can find
-// by running `niri msg outputs` while inside a niri instance.
-// The built-in laptop monitor is usually called "eDP-1".
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
-// Settings that influence how windows are positioned and sized.
-
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 hotkey-overlay {
     skip-at-startup
 }
 
 binds{
-   // Using spawn-sh allows to pass multiple arguments together with the
-    // command (mieux que spawn tout court qui nécessite donc ce petit jeu
-    // d'échappement)
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -107,52 +72,6 @@ binds{
     Mod+Ctrl+Alt+j  { move-window-down-or-to-workspace-down; }
     Mod+Ctrl+Alt+k  {  move-window-up-or-to-workspace-up; }
     Mod+Ctrl+Alt+l { move-window-to-monitor-right; }
-    
-    // ernatively, there are commands to move just a single window:
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
-    // ...
-
-    // You can bind mouse wheel scroll ticks using the following syntax.
-    // These bsinds will change direction based on the natural-scroll setting.
-    //
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind, but it's most useful for the wheel.
-    // Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    // Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    // Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    // Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-
-    // Mod+WheelScrollRight      { focus-column-right; }
-    // Mod+WheelScrollLeft       { focus-column-left; }
-    // Mod+Ctrl+WheelScrollRight { move-column-right; }
-    // Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-
-    // Usually scrolling up and down with Shift in applications results in
-    // horizontal scrolling; these binds replicate that.
-    // Mod+Shift+WheelScrollDown      { focus-column-right; }
-    // Mod+Shift+WheelScrollUp        { focus-column-left; }
-    // Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    // Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
-
-    // Similarly, you can bind touchpad scroll "ticks".
-    // Touchpad scrolling is continuous, so for these binds it is split into
-    // discrete intervals.
-    // These binds are also affected by touchpad's natural-scroll, so these
-    // example binds are "inverted", since we have natural-scroll enabled for
-    // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
-
-    // You can refer to workspaces by index. However, keep in mind that
-    // niri is a dynamic workspace system, so these commands are kind of
-    // "best effort". Trying to refer to a workspace index bigger than
-    // the current workspace count will instead refer to the bottommost
-    // (empty) workspace.
-    //
-    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // will all refer to the 3rd workspace.
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -171,63 +90,27 @@ binds{
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
-
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
-    // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
-
-    // The following binds move the focused window in and out of a column.
-    // If the window is alone, they will consume it into the nearby column to the side.
-    // If the window is already in a column, they will expel it out.
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-
-    // Consume one window from the right to the bottom of the focused column.
     Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
-
     Mod+R { switch-preset-column-width; }
-    // Cycling through the presets in reverse order is also possible.
-    // Mod+R { switch-preset-column-width-back; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+G{ maximize-column; }
     Mod+Shift+G { fullscreen-window; }
-
     Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
-
     Mod+KP_Subtract{ set-column-width "-10%"; }
     Mod+KP_Add { set-column-width "+10%"; }
     Mod+Shift+KP_Subtract{ set-window-height "-10%"; }
     Mod+Shift+KP_Add { set-window-height "+10%"; }
-
-    // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-
-    // Toggle tabbed column display mode.
     Mod+W { toggle-column-tabbed-display; }
-
-    // Actions to switch xkb layouts.
-    // Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
-
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-
-    // Applications such as remote-desktop clients and software KVM switches may
-    // request that niri stops processing the keyboard shortcuts defined here
-    // so they may, for example, forward the key presses as-is to a remote machine.
-    // It's a good idea to bind an escape hatch to toggle the inhibitor,
-    // so a buggy application can't hold your session hostage.
-    //
-    // The allow-inhibiting=false property can be applied to other binds as well,
-    // which ensures niri always processes them, even when an inhibitor is active.
     Mod+x { spawn-sh "bash $HOME/.config/niri/scripts/powermenu.sh" ; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+E { quit; }
@@ -235,9 +118,6 @@ binds{
     Mod+Shift+P { power-off-monitors; }
 }
 
-
 switch-events {
     lid-close { spawn "swaylock"; }
 }
-
-
