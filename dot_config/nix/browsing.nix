@@ -2,7 +2,13 @@
 
 
 {
-
+  programs.chromium = {
+    enable = true;
+    extensions = [
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+    ];
+    
+  };
   programs.firefox = {
     enable = true;
 
@@ -25,7 +31,7 @@
       BlockAboutConfig              = false;
       # UI and Behavior
       DontCheckDefaultBrowser       = true;
-      HardwareAcceleration          = false;
+      HardwareAcceleration          = true;
       DefaultDownloadDirectory      = "/home/nestor/Downloads";
 
       # Extensions
@@ -33,43 +39,38 @@
         moz = short: "https://addons.mozilla.org/firefox/downloads/latest/${short}/latest.xpi"; 
       in {
         "*".installation_mode = "blocked";
-
         "uBlock0@raymondhill.net" = {
           install_url       = moz "ublock-origin";
           installation_mode = "force_installed";
           updates_disabled  = true;
         };
-
+        "vimium-store@googlegroups.com" = {
+          install_url       = moz "vimium-ff";
+          installation_mode = "force_installed";
+          updates_disabled  = true;
+        };
       };
+  };
+  preferences = { 
+      # "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
+      "extensions.pocket.enabled" = "lock-false";
+      "extensions.screenshots.disabled" = "lock-true";
+      "browser.topsites.contile.enabled" = "lock-false";
+      "browser.formfill.enable" = "lock-false";
+      "browser.search.suggest.enabled" = "lock-false";
+      "browser.search.suggest.enabled.private" = "lock-false";
+      "browser.urlbar.suggest.searches" = "lock-false";
+      "browser.urlbar.showSearchSuggestionsFirst" = "lock-false";
+      "browser.newtabpage.activity-stream.feeds.section.topstories" = "lock-false";
+      "browser.newtabpage.activity-stream.feeds.snippets" = "lock-false";
+      "browser.newtabpage.activity-stream.section.highlights.includePocket" = "lock-false";
+      "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = "lock-false";
+      "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = "lock-false";
+      "browser.newtabpage.activity-stream.section.highlights.includeVisited" = "lock-false";
+      "browser.newtabpage.activity-stream.showSponsored" = "lock-false";
+      "browser.newtabpage.activity-stream.system.showSponsored" = "lock-false";
+      "browser.newtabpage.activity-stream.showSponsoredTopSites" = "lock-false";
     };
+  };
 
-  };
-  environment.systemPackages = with pkgs; [
-  (chromium.override {
-    enableWideVine = true;
-    commandLineArgs = [
-      "--enable-features=AcceleratedVideoEncoder"
-      "--ignore-gpu-blocklist"
-      "--enable-zero-copy"
-    ];
-  })
-  ];
-  programs.chromium = {
-    enable = true;
-    homepageLocation = "https://www.startpage.com/";
-    extensions = [
-    "eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx" # dark reader
-    "aapbdbdomjkkjkaonfhkkikfgjllcleb;https://clients2.google.com/service/update2/crx" # google translate
-    ];
-    extraOpts = {
-      "WebAppInstallForceList" = [
-        {
-        "custom_name" = "Youtube";
-        "create_desktop_shortcut" = false;
-        "default_launch_container" = "window";
-        "url" = "https://youtube.com";
-        }
-      ];
-    };
-  };
 }

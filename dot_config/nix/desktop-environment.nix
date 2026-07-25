@@ -6,9 +6,12 @@
     "/home/nestor/.config/nix/utils/dolphin-overlay.nix"
     # "/home/nestor/.config/nix/utils/nnn.nix"
   ];
+  programs.firefox.enable = true;
   programs.thunderbird.enable = true;
   environment.systemPackages = with pkgs;
   [
+    syncthing
+    ungoogled-chromium
     wob
     fzf
     calcurse
@@ -27,7 +30,6 @@
     power-profiles-daemon
     brightnessctl
     mpv
-    waybar
     zathura
     fuzzel
     kdePackages.kcolorchooser
@@ -44,6 +46,8 @@
     kdePackages.kio-fuse #to mount remote filesystems via FUSE
     kdePackages.kio-extras #extra protocols support (sftp, fish and more)
     xwayland-satellite
+    waybar
+    waybar-mpris
   ];
   programs.kdeconnect.enable = true;
 
@@ -53,6 +57,7 @@
     noto-fonts-cjk-sans
     noto-fonts-color-emoji
     nerd-fonts.fira-code
+    font-awesome_4
   ];
   fonts.fontDir.enable = true;
 
@@ -60,11 +65,10 @@
   xdg.portal.config.niri = {
     "org.freeedesktop.impl.portal.FileChooser" = [ "kde" ];
   };
-  
   programs.niri.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
-  programs.waybar.enable = true;
+  # programs.waybar.enable = true;
 
 }

@@ -1,13 +1,12 @@
 { config, pkgs, ... }:
 
-
 {
   imports = [
     "/home/nestor/.config/nix/system.nix" # ill probably need to modularize this a bit 
     # "locale.nix",
     "/home/nestor/.config/nix/desktop-environment.nix" # all software and tweaks necessary to have a sleek workflow
-    # "/home/nestor/.config/nix/dev-tools.nix" # if i have to develop
-    "/home/nestor/.config/nix/browsing.nix" # basic stuff to consume any media 
+    # "/home/nestor/.config/nix/browsing.nix" # firefox config
+    "/home/nestor/.config/nix/dev-tools.nix" # if i have to develop
     {{ if ne .chezmoi.hostname "rabbit"  }}
     {{ if eq .chezmoi.hostname "tiger" }}
     "/home/nestor/.config/nix/entertainment.nix" # all the games i have
