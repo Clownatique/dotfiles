@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-
 {
   imports = [
     "/home/nestor/.config/nix/utils/dolphin-overlay.nix"
@@ -8,47 +7,6 @@
   ];
   programs.firefox.enable = true;
   programs.thunderbird.enable = true;
-  environment.systemPackages = with pkgs;
-  [
-    syncthing
-    ungoogled-chromium
-    wob
-    fzf
-    calcurse
-    bemoji
-    fastfetch
-    helix
-    wl-clipboard
-    wlsunset
-    dunst
-    swww
-    swaylock
-    swayidle
-    wayfarer
-    imv
-    foot
-    power-profiles-daemon
-    brightnessctl
-    mpv
-    zathura
-    fuzzel
-    kdePackages.kcolorchooser
-    kdePackages.dolphin
-    pandoc
-    bitwarden-cli
-    (pkgs.nnn.override { withNerdIcons= true; })
-    # bonus
-    power-profiles-daemon
-    # backbone
-    kdePackages.qtsvg
-     
-    kdePackages.kio # needed since 25.11
-    kdePackages.kio-fuse #to mount remote filesystems via FUSE
-    kdePackages.kio-extras #extra protocols support (sftp, fish and more)
-    xwayland-satellite
-    waybar
-    waybar-mpris
-  ];
   programs.kdeconnect.enable = true;
 
   services.power-profiles-daemon.enable = true;
@@ -61,14 +19,59 @@
   ];
   fonts.fontDir.enable = true;
 
+  programs.niri.enable = true;
+
   xdg.portal.enable = true; 
   xdg.portal.config.niri = {
-    "org.freeedesktop.impl.portal.FileChooser" = [ "kde" ];
+    "org.freeedesktop.impl.portal.FileChooser" = [ "kde" ]; # wip: to change into nnn
   };
-  programs.niri.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
-  # programs.waybar.enable = true;
+  environment.systemPackages = with pkgs;
+  [
+    #######
+    # EDC #
+    #######
+    helix
+    foot
+    zathura
+    mpv
+    imv
+    (pkgs.nnn.override { withNerdIcons= true; })
+    fuzzel
 
+    ############
+    # DE TOOLS #
+    ############
+    
+    wl-clipboard
+    wlsunset
+    dunst
+    awww
+    swaylock
+    swayidle
+    waybar
+    waybar-mpris
+    xwayland-satellite
+    power-profiles-daemon
+    brightnessctl
+    bemoji # too useful to not be in here 
+    wob
+    fzf #(not so used yet)
+    wev
+    fastfetch
+
+    syncthing
+    ungoogled-chromium
+    bitwarden-cli
+    calcurse # calendar thing
+
+    kdePackages.kcolorchooser
+    kdePackages.dolphin
+    kdePackages.qtsvg 
+    kdePackages.kio # needed since 25.11
+    kdePackages.kio-fuse #to mount remote filesystems via FUSE
+    kdePackages.kio-extras #extra protocols support (sftp, fish and more)
+  ];
 }

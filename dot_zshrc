@@ -1,47 +1,51 @@
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="bira"
-# CASE_SENSITIVE="true"
+#######
+# ZSH #
+#######
+
+
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 5
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-HIST_STAMPS="dd/mm/yyyy"
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+
+################
+# SOURCE & ENV #
+################
+
+if [ -e /home/nestor/.cargo/env ]; then . "$HOME/.cargo/env" ; fi
+[[ ! -r '/home/nestor/.opam/opam-init/init.zsh' ]] || source '/home/nestor/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 plugins=(git)
+if [ -e /home/nestor/.nix-profile/etc/profile.d/nix.sh ]; then . /home/nestor/.nix-profile/etc/profile.d/nix.sh; fi 
 if [ -e $ZSH/oh-my-zsh.sh ] ; then
   source $ZSH/oh-my-zsh.sh
 else
   echo "Oh-My-ZSH not installed"
 fi
-export MANPATH="/usr/local/man:$MANPATH"
-export LANG=en_US.UTF-8
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='hx'
-fi
+[[ -f ~/.cache/color-sequences ]] && (cat ~/.cache/color-sequences &)
+if [ -e /home/nestor/.cargo/env ]; then . "$HOME/.cargo/env" ; fi
+
+
+#########
+# ALIAS #
+#########
+
 alias ocaml="rlwrap ocaml"
 alias proj="tmuxinator start"
 alias untar="tar -xvf"
 alias datemd="date --iso-8601=minutes"
-alias cht.sh
 
-[[ ! -r '/home/nestor/.opam/opam-init/init.zsh' ]] || source '/home/nestor/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+################
+# NIRI STARTUP #
+################
 
+# auto a niri session at logind
 if [[ "$XDG_SESSION_TYPE" = "tty" ]]; then
   niri-session
 fi
 
-# proj conception
-# proj graphique
-# proj ocaml
-# proj hugo-cours
-# proj systeme
-[[ -f ~/.cache/color-sequences ]] && (cat ~/.cache/color-sequences &)
+#############
+# FUNCTIONS #
+#############
+
+dot() {
+  chezmoi edit "$@" && chezmoi apply
+}
+

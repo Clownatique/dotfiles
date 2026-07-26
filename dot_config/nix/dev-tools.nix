@@ -7,20 +7,33 @@
       "pnpm-9.15.9"
       "quickjs-2025-09-13-2"
   ];
+  programs.tmux = {
+    enable = true;
+  };
   environment.systemPackages = with pkgs; [
-     wev
+     #######
+     # EDC #
+     #######
      unzip
      git
      chezmoi
      usbutils
      oh-my-zsh
-     # emmet-language-server
-     # clang-tools
-     # ocamlPackages.lsp
+     pandoc
+     #######
+     # IDE #
+     #######
      # racket
+     tic-80
+     #######
+     # LSP #
+     #######
      taplo
      marksman
      nixd
+     # emmet-language-server
+     # clang-tools
+     # ocamlPackages.lsp
      # vscode-css-languageserver
      # superhtml
      # vscode-json-languageserver
@@ -30,9 +43,5 @@
      # prettier
      # jinja-lsp
      # lua-language-server
-     tic-80
   ];
-  programs.tmux = {
-    enable = true;
-  };
 }

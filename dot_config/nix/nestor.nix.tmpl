@@ -16,20 +16,4 @@
     "/home/nestor/.config/nix/creative.nix" # any piece of software that helps me putting my ideas into byte
     {{end}}
   ];
-
-  environment.systemPackages = with pkgs; [
-     git
-     foot
-     gcc
-     clang_20
-     ocaml
-     chezmoi
-     usbutils
-     prismlauncher
-     jre25_minimal
-     rpi-imager
-  ];
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 }
