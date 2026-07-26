@@ -1,11 +1,27 @@
 [init]
 	defaultBranch = main
+
 [pull]
 	rebase = true
+
 [push]
 	autoSetupRemote = true
 
-[init]
-	defaultBranch = main
 [checkout]
 	defaultRemote = origin
+
+
+[core]
+	editor = hx
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+
+[merge]
+	tool = helix
+
+[mergetool "helix"]
+	cmd = helix --vsplit "$LOCAL" "$REMOTE"
+
+[user]
+	email = 132279628+Clownatique@users.noreply.github.com
+	name = Clownatique
