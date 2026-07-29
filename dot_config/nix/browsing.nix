@@ -11,6 +11,7 @@
   };
   programs.firefox = {
     enable = true;
+    package = pkgs.waterfox;
 
     languagePacks = [ "en-GB" ];
 
