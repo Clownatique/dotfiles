@@ -1,5 +1,5 @@
 spawn-sh-at-startup "awww-daemon"
-spawn-sh-at-startup "awww img .config/wallpapers/cable/clear.jpg"
+spawn-sh-at-startup "awww img .config/wallpapers/cable/corridor.jpeg"
 
 animations {
     slowdown 0.75
