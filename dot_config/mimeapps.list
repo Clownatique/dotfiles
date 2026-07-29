@@ -1,0 +1,25 @@
+[Added Associations]
+message/rfc822=userapp-Thunderbird-Z3M5S3.desktop;
+text/plain=footclient-2.desktop;hx.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-Z3M5S3.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-Z3M5S3.desktop;
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-E7Z3S3.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/*=imv.desktop;
+image/jpeg=imv.desktop;
+image/png=imv.desktop;
+message/rfc822=userapp-Thunderbird-Z3M5S3.desktop
+text/*=helix.desktop;
+text/css=helix.desktop;
+text/html=helix.desktop;
+text/json=helix.desktop;
+text/plain=footclient-2.desktop;
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-Z3M5S3.desktop
+x-scheme-handler/mid=userapp-Thunderbird-Z3M5S3.desktop
+x-scheme-handler/net.thunderbird=userapp-Thunderbird-E7Z3S3.desktop
+x-scheme-handler/unknown=firefox.desktop
