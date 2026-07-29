@@ -2,7 +2,9 @@ spawn-sh-at-startup "mkfifo $XDG_RUNTIME_DIR/wob_volume.sock"
 spawn-sh-at-startup "mkfifo $XDG_RUNTIME_DIR/wob_bright.sock"
 spawn-sh-at-startup "tail -f $WOBSOCK_BRI | wob -c ~/.config/wob/bright.ini &"
 spawn-sh-at-startup "tail -f $WOBSOCK_VOL | wob -c ~/.config/wob/volume.ini &"
+
 include "applications.kdl"
+
 input {
     keyboard {
         xkb {
@@ -35,19 +37,26 @@ hotkey-overlay {
 }
 
 binds{
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
     // This will work with any MPRIS-enabled media player.
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
+    {{- if eq .chezmoi.hostname "rabbit" }}
+    F10 allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
+    F9 allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
+    F8 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    F7 allow-when-locked=true { spawn-sh "sh ~/.config/niri/scripts/wob-light+.sh";}
+    F6 allow-when-locked=true { spawn-sh "sh ~/.config/niri/scripts/wob-light.sh";}
+    {{- else }}
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86MonBrightnessUp allow-when-locked=true { spawn-sh "sh ~/.config/niri/scripts/wob-light+.sh";}
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "sh ~/.config/niri/scripts/wob-light.sh";}
-
+    {{end}}
     Mod+O repeat=false { toggle-overview; }
 
     Mod+F repeat=false { close-window; }
