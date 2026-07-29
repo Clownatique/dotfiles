@@ -1,0 +1,79 @@
+
+# "ui.background" = { bg = "rose_bg", fg = "black"}
+ 
+"ui.background.separator" = { fg = "ylw_bdr"} 
+
+"ui.cursor" = {bg = "ylw_bdr", fg = "black"} # need a darker yellow
+"ui.cursor.match"  =  {bg = "rose_sfce",fg = "black"}
+"ui.cursor.primary"  =  {bg = "ylw_bdr",fg = "black"}
+ 
+"ui.selection" = {bg = "rose_sfce", fg = "black"}
+
+"ui.gutter" = {bg="rose_bg", fg="ylw_bdr"} # barre a cote (fg sert a rien)
+"ui.gutter.selected" = {bg="ylw_bg"} # ligne sur laquelle on agit (dans la barre a cote)
+"ui.linenr" = {fg="#555500"}
+"ui.linenr.selected" = {fg="black"}
+
+"ui.cursorline" = {bg="red",fg="rose_sfce"}
+"ui.statusline" = {bg="rose_sfce",fg="black"}
+"ui.statusline.inactive" = { fg = "rose_bg", bg = "rose_sfce" }
+
+"ui.statusline.normal" = { fg = "berry_saturated", bg = "rose_sfce" }
+"ui.statusline.insert" = { fg = "berry_saturated", bg = "grn_sfce" }
+"ui.statusline.select" = { fg = "berry_saturated", bg = "ylw_sfce" }
+
+"ui.virtual.ruler" = { bg = "rose_bg"}
+
+"ui.popup" = { fg = "black", bg = "ylw_sfce" }
+"ui.window" = { fg = "red", bg = "ylw_bdr" }
+"ui.help" = { fg = "lilac", bg = "ylr_sfce" }
+# "ui.text.focus" = { fg = "mint" }
+"ui.menu" = { fg = "black", bg = "ylr_sfce" }
+"ui.menu.selected" = { fg = "black", bg = "ylr_sfce" }
+# 
+"ui.virtual.whitespace" = { fg = "rose_sfce" }
+"ui.virtual.indent-guide" = { fg = "red" }
+"ui.virtual.inlay-hint" = { fg = "red", bg="blue" }
+
+"ui.text.directory" = {fg="rose_bdr"}
+
+"attribute" = "grey"
+"type" = "bleu"
+"constant" = "jaune"
+"string" = "vert"
+"comment" = "grey"
+"variable" = "grey"
+"label" = "grey"
+"punctuation" = "cyan"
+"keyword" = "bleu"
+"operator"="grey"
+"function"="magenta"
+
+
+
+[palette]
+# pink
+"rose_bg" = "#FFC0FA"
+"rose_sfce" = "#E772DD"
+"rose_dkr" = "#C946BE"
+"rose_bdr" = "#993590"
+# yellow
+"ylw_bg" = "#FFF0C0"
+"ylw_sfce" = "#FFE07E"
+"ylw_dkr" = "#FFD758"
+"ylw_bdr" = "#E1BE4E"
+# green
+"grn_bg" = "#C0FFE7"
+"grn_sfce" = "#72E6BA"
+"grn_dkr" = "#45C897"
+"grn_bdr" = "#993590"
+
+"noir" = "#594587"
+"rouge" = "#eb0c21" #base08
+"vert" = "#308d62" #base0b
+"jaune" = "#c2911e" #base09
+"bleu" = "#1c7e9c" #base0e
+"magenta" = "#c81471" #base0d
+"cyan" = "#06843c" #base0c
+# "gris" = "grey" #base0f
+

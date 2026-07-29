@@ -22,7 +22,6 @@ layout {
         width 3
         urgent-color "#9b0000"
     }
-    background-color "transparent"
     // focus-ring {
     //     width 2
     // }
@@ -32,4 +31,19 @@ layout {
     //     top 1
     //     bottom 1
     // }
+    background-color "#FFC0FA"
 }
+overview {
+    zoom 0.6
+    backdrop-color "#ffc0fa"
+
+    workspace-shadow {
+        // off
+        softness 100
+        spread 40
+        offset x=0 y=10
+        color "#993590"
+    }
+}
+}
+
