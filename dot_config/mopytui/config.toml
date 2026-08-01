@@ -1,0 +1,41 @@
+# mopytui config
+host = "127.0.0.1"
+http_port = 6680
+mpd_port = 6600
+
+# midnight | soft-dark | daylight | solar
+theme = "daylight"
+
+# Enable MPRIS integration (Linux only — no-op elsewhere).
+mpris = false
+
+# Live FFT spectrum visualizer (optional). Configure mopidy's `[audio] output`
+# to `tee` the stream into a sink mopytui can read. Bit-perfect to the DAC is
+# preserved because `tee` only duplicates buffers and the visualizer branch
+# uses `leaky=2` queues so it never blocks the audio path.
+#
+# Recommended: UDP (fire-and-forget, no preroll). Add to mopidy.conf:
+#
+#     [audio]
+#     output = tee name=t allow-not-linked=true t. ! queue leaky=2 max-size-buffers=200 ! autoaudiosink t. ! queue leaky=2 max-size-buffers=200 ! audioresample ! audioconvert ! audio/x-raw,format=S16LE,rate=44100,channels=2 ! udpsink host=<mopytui-host> port=5555 sync=false
+#
+# audio_udp = "0.0.0.0:5555"
+#
+# Alternatives (less reliable):
+# audio_tcp  = "127.0.0.1:5555"     # GStreamer tcpserversink
+# audio_pipe = "/tmp/mopidy.fifo"   # filesink + mkfifo
+
+# Default visualizer style on launch. Cycle at runtime with `v`.
+# bars   — vertical FFT bars (default)
+# mirror — bars mirrored above/below a centre axis
+# dots   — FFT bars in braille sub-pixels (2× horizontal × 4× vertical)
+# wave   — raw PCM waveform (braille line plot)
+# visualizer_style = "bars"
+
+# Optional API keys for richer metadata.
+# last.fm:   https://www.last.fm/api/account/create
+# fanart.tv: https://fanart.tv/get-an-api-key/
+# discogs:   https://www.discogs.com/settings/developers
+lastfm_api_key = ""
+fanart_api_key = ""
+discogs_token = ""
