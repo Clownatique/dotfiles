@@ -1,10 +1,9 @@
 spawn-sh-at-startup "swayidle -w timeout 500 'swaylock'"
-spawn-sh-at-startup "thunderbird"
-spawn-sh-at-startup "niri msg action focus-workspace-down"
 spawn-sh-at-startup "foot --server"
 spawn-sh-at-startup "kdeconnectd"
-spawn-sh-at-startup "syncthing"
+spawn-sh-at-startup "syncthing --no-browser"
 spawn-sh-at-startup "waybar"
+spawn-sh-at-startup "darkman run"
 
 window-rule {
     match app-id="^gimp" title="^Lancement de GIMP$"
@@ -53,4 +52,3 @@ environment {
     WOBSOCK_VOL "/run/user/1000/wob_volume.sock"
     WOBSOCK_BRI "/run/user/1000/wob_bright.sock"
 }
-

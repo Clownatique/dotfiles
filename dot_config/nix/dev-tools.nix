@@ -3,8 +3,8 @@
 {
   imports = [
     "./languages/config.nix"
-    "./languages/notes.nix"
     "./languages/lua.nix"
+    "./languages/notes.nix"
   ];
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -16,10 +16,6 @@
     enable = true;
   };
   environment.systemPackages = with pkgs; [
-    #########
-    # TOOLS #
-    #########
-    cht-sh
     imagemagick
     calc
     procps
@@ -28,6 +24,10 @@
     jq
     ddcutil
     wmctrl
+    typst
+    typstyle
+    tinymist
+    typst-live
     #######
     # EDC #
     #######
@@ -43,8 +43,8 @@
     #######
     # LSP #
     #######
-    # bash-completion
-    # jq-lsp
+    # taplo
+    # nixd
     # emmet-language-server
     # clang-tools
     # ocamlPackages.lsp
