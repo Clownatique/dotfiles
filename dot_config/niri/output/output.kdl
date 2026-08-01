@@ -3,3 +3,8 @@ include "layout.kdl"
 
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %d-%m-%Y %H-%M-%S.png"
+output "HDMI-A-1" {
+    // off
+    mode "1920x1080@60.000"
+
+}
