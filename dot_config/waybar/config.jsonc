@@ -10,7 +10,7 @@
   "reload_style_on_change": true,
   "modules-left": [
     "wlr/taskbar",
-    "mpris"
+    "mpd"
   ],
   "modules-center": [
     "niri/workspaces"
@@ -139,7 +139,7 @@
     "on-click": "pavucontrol"
   },
   "mpris": {
-    "format": "{status_icon} <b>{title}</b>: {dynamic} on <b>{player_icon}</b>",
+    "format": "{status_icon} <b>{title}</b> ",
     "title-len": 32,
     "dynamic-separator": " by ",
     "dynamic-order": [
@@ -152,6 +152,7 @@
       "mpv": "",
       "vlc": "󰕼",
       "firefox": "",
+      "kdeconnect": "",
       "chromium": "󰎆"
     },
     "status-icons": {
@@ -159,5 +160,19 @@
       "playing": "⏸",
     },
     // "ignored-players": ["firefox"]
+  },
+  "mpd": {
+    "format": " {stateIcon} <b>{title}</b>: {artist} from {album}",
+    "format-disconnected": "Disconnected",
+    "format-stopped": "Stopped",
+    "max-length": 40,
+    "on-click":"mpc toggle",
+    "on-scroll-up":"mpc next",
+    "on-scroll-down":"mpc previous",
+    "state-icons": {
+        "paused": "⏸",
+        "playing": "▶"
+    },
+    "unknown-tag": "🤷"
   }
 }

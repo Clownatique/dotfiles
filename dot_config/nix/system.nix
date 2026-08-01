@@ -70,28 +70,27 @@ in
   nixpkgs.config.allowUnfree = true;
 
   services.printing.enable = true;
-  #########
-  # AUDIO #
-  #########
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true; # prevents audio dropouts
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-    #media-session.enable = true;
-  };
   boot.kernelModules = ["i2c-dev"];
   services.udev.extraRules = ''
         KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
 
   networking.networkmanager.enable = true;
+  services.pipewire.systemWide= true;
+  # services.pipewire.enable = false;
+  # services.pulseaudio= {
+    # enable = true;
+    # support32Bit = true;
+    # systemWide = true;
+  # };
+
   users.users.nestor = {
     isNormalUser = true;
     description = "nestor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    # extraGroups = [ "networkmanager" "wheel" "i2c" "pulse-access" ];
+    extraGroups = [ "networkmanager" "wheel" "i2c" "pipewire" "audio" ];
   };
+
+  # users.users.mopidy.extraGroups = [ "pulse-access" ];
+  users.users.mopidy.extraGroups = [ "pipewire" "audio" ];
 }

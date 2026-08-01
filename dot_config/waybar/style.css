@@ -58,7 +58,10 @@ button:hover {
     /* padding-right: 12px; */
 }
 
-#mpris {
+#custom-anki:hover{
+  background-color: #FFC0FA;
+}
+#mpd {
   color: #FFC0FA;
 }
 

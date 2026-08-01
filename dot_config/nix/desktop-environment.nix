@@ -28,6 +28,58 @@
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
+
+  services.mopidy = {
+	enable = true;
+	extensionPackages = with pkgs; [
+	  mopidy-local
+	  mopidy-mpd
+	  mopidy-tidal
+	  mopidy-ytmusic
+	];
+	settings ={
+	    core={
+	      restore_state = true;
+	    };
+	    audio = {
+	      output = "autoaudiosink";
+	    };
+
+      local = {
+    		enabled = true;
+    		media_dir = "/tmp/Music";
+    		data_dir =  "$HOME/Music/data";
+    		scan_timeout = 1000;
+    	};
+
+			logging = {
+  			color = true;
+  			console_format = "%(levelname)-8s %(message)s";
+  			debug_format = "%(levelname)-8s %(asctime)s [%(process)d:%(threadName)s] %(name)s\n";
+  			debug_file = "mopidy.log";
+  			verbosity = 0;
+			};
+
+			mpd = {
+  			enabled = true;
+        hostname = "::";
+  		};
+  		
+			ytmusic = {
+  			enabled = false;
+  			auth_json = "/tmp/auth.json";
+  		};
+
+			tidal = {
+        enabled = true;
+        quality = "LOSSLESS";
+        auth_method = "OAUTH";
+        login_server_port = 8989;
+        lazy = false;
+        login_method = "AUTO";
+      };
+  	};
+	};
   environment.systemPackages = with pkgs;
   [
     #######

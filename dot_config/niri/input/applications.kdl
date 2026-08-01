@@ -1,9 +1,12 @@
 binds {
-    Mod+Y { spawn-sh "footclient -- hx" ;}
-    Mod+E  { spawn-sh "footclient -- nnn";}
+    Mod+Y { spawn-sh "footclient -a helix -- hx" ;}
+    Mod+E  { spawn-sh "footclient -a file-explorer -- nnn";}
+    Mod+a { spawn-sh "bemoji";}
+    Mod+s {spawn-sh "footclient -a mopytui -- $HOME/.local/bin/mopytui --theme daylight";}
     Mod+Space   { spawn "firefox";}
     Mod+t  { spawn-sh "footclient -- tmux";}
     Mod+Shift+T  { spawn "foot";}
     Mod+D  { spawn-sh "fuzzel";}
     Mod+Alt+L  { spawn "swaylock";}
+    Mod+z { spawn-sh "bash $HOME/.config/niri/scripts/screen-menu.sh 1>&2 $HOME/output";}
 }
