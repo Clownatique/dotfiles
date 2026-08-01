@@ -30,16 +30,10 @@ button {
   box-shadow: inset 0 -3px #E1BE4E;
 }
 
-/* #taskbar/empty{ */
-  /* background: #ffffff; */
-/* } */
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
 }
 
-#taskbar,
 #workspaces,
 #pulseaudio,
 #network,
@@ -51,7 +45,6 @@ button:hover {
   padding: 0 12px;
   background-color: #C946BE;
   color: black
-    /* padding-right: 12px; */
 }
 #taskbar,
 #workspaces,
@@ -63,16 +56,26 @@ button:hover {
   border-bottom:0;
 }
 
-#custom-anki{
-  font-size: 9px;
-  margin: 0;
-  font-weight:900;
-  background-color: rgba(153, 53, 144, 1);
+#network,
+#backlight,
+#battery,
+#pulseaudio,
+#power-profiles-daemon{
+  color:black;
 }
 
-#custom-anki:hover{
-  background-color: #FFC0FA;
+#custom-anki,
+#mpd,
+#custom-kdeconnect{
+  color:#ffc0fa;
 }
+#custom-anki{
+  font-size: 9px;
+  margin-left: 3px;
+  margin-right: 3px;
+  font-weight:900;
+}
+
 #mpd {
   color: #FFC0FA;
 }

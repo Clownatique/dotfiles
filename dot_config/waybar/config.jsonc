@@ -6,14 +6,14 @@
   "reload_style_on_change": true,
   "modules-left": [
     "wlr/taskbar",
-    "mpd"
+    "custom/anki",
+    "custom/kdeconnect",
+    "mpd",
   ],
   "modules-center": [
     "niri/workspaces"
   ],
   "modules-right": [
-    "custom/kdeconnect",
-    "custom/anki",
     "network",
     "group/power",
     "group/io",
@@ -33,9 +33,10 @@
   },
   "custom/kdeconnect": {
     // "hide-empty-text": true,
+    // "exec-if":"$HOME/.config/waybar/script/kdeconnect?.sh",
     "exec":"$HOME/.config/waybar/script/kdeconnect.sh",
     "interval":120,
-    "format": " ",
+    "format": "  ",
     "tooltip-format": "{text}",
     "tooltip": true,
     "on-click":"kdeconnect-app --device $(kdeconnect-cli -l --id-only)"
@@ -47,7 +48,6 @@
     "return-type":"json",
     "interval": 20,
     "on-click":"anki"
-
   },
   "niri/workspaces": {
     "format": "{icon}"
@@ -60,6 +60,10 @@
     "tooltip-format": "{title}",
     "on-click": "activate",
     "on-click-middle": "close",
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
   },
   "clock": {
     "interval": 1,
@@ -114,9 +118,9 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-wifi": "({signalStrength}%) {essid} ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+    "tooltip-format": "{ipaddr}/{cidr} via {gwaddr} 󰛳",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󱛅",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
@@ -167,7 +171,7 @@
   "mpd": {
     "format": " {stateIcon} <b>{title}</b>: {artist} from {album}",
     "format-disconnected": "Disconnected",
-    "format-stopped": "Stopped",
+    "format-stopped": "",
     "max-length": 40,
     "on-click":"mpc toggle",
     "on-scroll-up":"mpc next",
