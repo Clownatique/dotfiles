@@ -3,10 +3,6 @@
   "layer": "top",
   "position": "top",
   "height": 10,
-  "spacing": 4,
-  "margin-top": 1,
-  "margin-left": 10,
-  "margin-right": 10,
   "reload_style_on_change": true,
   "modules-left": [
     "wlr/taskbar",
@@ -37,21 +33,28 @@
   },
   "custom/kdeconnect": {
     // "hide-empty-text": true,
-    "exec": "$HOME/.config/waybar/script/kdeconnect.sh",
+    "exec":"$HOME/.config/waybar/script/kdeconnect.sh",
+    "interval":120,
     "format": " ",
     "tooltip-format": "{text}",
-    "tooltip": true
+    "tooltip": true,
+    "on-click":"kdeconnect-app --device $(kdeconnect-cli -l --id-only)"
   },
   "custom/anki": {
+    "exec-if":"$HOME/.config/waybar/script/anki?.sh",
     "exec": "$HOME/.config/waybar/script/anki.sh",
-    "format": "󱍁:{text}",
-    "interval": 30
+    "format": "{text}",
+    "return-type":"json",
+    "interval": 20,
+    "on-click":"anki"
+
   },
   "niri/workspaces": {
     "format": "{icon}"
   },
   "wlr/taskbar": {
     "format": "{icon}",
+    "hide-empty-text":true,
     "icon-size": 16,
     "icon-theme": "Numix-Circle",
     "tooltip-format": "{title}",
@@ -60,7 +63,7 @@
   },
   "clock": {
     "interval": 1,
-    "locale": "fr_FR.UTF8",
+    "locale": "en_US.UTF8",
     "timezone": "Europe/Paris",
     "format": "{:L%a%d <b>%H:%M</b>:%S}"
   },

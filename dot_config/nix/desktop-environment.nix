@@ -82,6 +82,10 @@
 	};
   environment.systemPackages = with pkgs;
   [
+    qt6Packages.qt6ct
+    libsForQt5.qt5ct
+    kdePackages.breeze
+    kdePackages.breeze-gtk
     #######
     # EDC #
     #######
@@ -113,13 +117,17 @@
     fzf #(not so used yet)
     wev
     fastfetch
-
+    libnotify
+    mpd
+    tidal-dl
+    mpd-mpris
+    cavasik
+    anki
     syncthing
     ungoogled-chromium
     bitwarden-cli
     calcurse # calendar thing
 
-    kdePackages.kcolorchooser
     kdePackages.dolphin
     kdePackages.qtsvg 
     kdePackages.kio # needed since 25.11

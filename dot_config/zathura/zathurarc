@@ -1,32 +1,59 @@
+# include ./zathura
+
 set selection-clipboard wl-clipboard
 map <C-o> feedkeys ":exec okular $FILE"
 map o feedkeys ":open"
-map <C-b> feedkeys "toggle_statusbar"
-set default-bg "rgba(0, 0, 0, 0)"
-set recolor-lightcolor "#e4b3e4" ##bg
-set recolor-darkcolor "#0a1829" ## bg-fg
-set render-loading-bg "rgba(0, 0, 0, 0)"
 
-set statusbar-bg "#ff0000"
-set statusbar-fg "#ff0000"
+# fond 
 
+set default-bg "rgba(255, 192, 250,0.9)"
+set default-fg "#000000"
+
+# fond du pdf
+
+set recolor-lightcolor "rgba(255,192,250,1)"
+set recolor-darkcolor "#000000"
+
+# resultat potentiels de la completion
 set completion-bg "#d57bd5"
 set completion-fg "#000000"
+
+# seperateur utilise lors dune completion
+set completion-group-bg "#C946BE"
+set completion-group-fg "#000000"
+
+# completion propose
 set completion-highlight-bg "#fff1c9"
 set completion-highlight-fg "#383838"
 
-set inputbar-bg "#b5e6d1"
-set inputbar-fg "#8ec07c"
+# barre en bas (de commande)
+set inputbar-bg "#FFE07E"
+set inputbar-fg "#000000"
+
+# barre en bas (titre+page)
+set statusbar-bg "#993590"
+set statusbar-fg "#ffffff"
+
+# texte surligne (trouve, selectionne a la souris..)
+# set highlight-color
 
 set recolor-keephue true
 set recolor true
 
 ### OPTIONS ###
+set link-hadjust true
+
+set statusbar-page-percent true
 set statusbar-home-tilde true
 set window-title-basename true
-set guioptions none
+set guioptions sh
 set synctex true
 set selection-clipboard clipboard
+set scroll-page-aware true
+set scroll-step 50
 
 set render-loading true
 set page-cache-size 15
+
+set synctex true
+set synctex-editor-command "hxtex +%{line} %{input}"
