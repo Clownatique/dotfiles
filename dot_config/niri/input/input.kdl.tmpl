@@ -50,6 +50,7 @@ binds{
     F8 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     F7 allow-when-locked=true { spawn-sh "sh ~/.config/niri/scripts/wob-light+.sh";}
     F6 allow-when-locked=true { spawn-sh "sh ~/.config/niri/scripts/wob-light.sh";}
+    F4 { screenshot;}
     {{- else }}
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK_VOL";}
@@ -103,9 +104,10 @@ binds{
     Mod+BracketRight { consume-or-expel-window-right; }
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+R{ set-window-width "-10%"; }
+    Mod+Shift+R{ set-window-width "+10%"; }
+    Mod+Q{ set-window-height "-10%"; }
+    Mod+Shift+Q{ set-window-height "+10%"; }
     Mod+G{ maximize-column; }
     Mod+Shift+G { fullscreen-window; }
     Mod+C { center-column; }
@@ -117,7 +119,6 @@ binds{
     Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
-    Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
     Mod+x { spawn-sh "bash $HOME/.config/niri/scripts/powermenu.sh" ; }
