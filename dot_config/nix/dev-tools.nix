@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    "./languages/config.nix"
+    "./languages/notes.nix"
+    "./languages/lua.nix"
+  ];
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   nixpkgs.config.permittedInsecurePackages = [
@@ -11,37 +16,44 @@
     enable = true;
   };
   environment.systemPackages = with pkgs; [
-     #######
-     # EDC #
-     #######
-     unzip
-     git
-     chezmoi
-     usbutils
-     oh-my-zsh
-     pandoc
-     #######
-     # IDE #
-     #######
-     # racket
-     tic-80
-     #######
-     # LSP #
-     #######
-     taplo
-     marksman
-     nixd
-     # emmet-language-server
-     # clang-tools
-     # ocamlPackages.lsp
-     # vscode-css-languageserver
-     # superhtml
-     # vscode-json-languageserver
-     # emmet-ls
-     # python315
-     # luaformatter
-     # prettier
-     # jinja-lsp
-     # lua-language-server
+    #########
+    # TOOLS #
+    #########
+    cht-sh
+    imagemagick
+    calc
+    procps
+    rlwrap
+    sqlite
+    jq
+    ddcutil
+    wmctrl
+    #######
+    # EDC #
+    #######
+    unzip
+    git
+    chezmoi
+    usbutils
+    oh-my-zsh
+    #######
+    # IDE #
+    #######
+    # racket
+    #######
+    # LSP #
+    #######
+    # bash-completion
+    # jq-lsp
+    # emmet-language-server
+    # clang-tools
+    # ocamlPackages.lsp
+    # vscode-css-languageserver
+    # superhtml
+    # vscode-json-languageserver
+    # emmet-ls
+    # python315
+    # prettier
+    # jinja-lsp
   ];
 }
