@@ -17,6 +17,10 @@ language-servers = [{ name = "superhtml", except-features = ["format"] }, "vscod
 auto-format = true
 
 [[language]]
+name = "bash"
+scope = "source.sh"
+
+[[language]]
 name = "cpp"
 indent = { tab-width = 4, unit = "    " }
 roots = [".git", "CMakeLists.txt"]
@@ -28,18 +32,6 @@ command = "clangd"
 [language.auto-pairs]
 '/' = '/' #je commente plus mon code que ce que je fais des divisions...
 
-# [[language]]
-# name = "latex"
-
-# [language.config.texlab.build]
-# onSave = true
-# forwardSearchAfter = true
-
-# [language.config.texlab.forwardSearch]
-# executable = "zathura"
-# args = [ "--synctex-forward", "%l:1:%f", "%p" ]
-
-# [language.config.texlab.chktex]
 [[language]]
 name = "ocaml"
 auto-format = true

@@ -60,8 +60,10 @@ enable = true
 "C-S-v" = "paste_clipboard_after"
 "C-S-C" = "yank_main_selection_to_clipboard"
 "C-F" = ":buffer-close"
-"C-ret" = ':noop %sh{sh $HOME/.config/helix/compil.sh %{language} ${buffer_name} $(tmux display-message -p "#S,#I" )}'
+"C-t" = ':sh $HOME/.config/helix/compil.sh %{buffer_name} %{language}'
 "A-R" = ":config-reload"
+
+# %{language} ${buffer_name} $(tmux display-message -p "#S,#I" )}'
 # envoie le num de la session + index de la fenetre
 # le probleme c que buffer_name renvoie le nom du fichier relativement a ou a été lancé helix (donc nul)
 
