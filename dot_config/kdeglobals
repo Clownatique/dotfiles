@@ -1,0 +1,3 @@
+[UiSettings]
+ColorScheme=*
+# donc pour changer ce putain de theme remplacer le par le nom du.colors dans .local/share/color-schemes/*.colors
