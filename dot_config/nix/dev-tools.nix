@@ -2,9 +2,9 @@
 
 {
   imports = [
-    "./languages/config.nix"
-    "./languages/lua.nix"
-    "./languages/notes.nix"
+    "/home/nestor/.config/nix/languages/config.nix"
+    "/home/nestor/.config/nix/languages/lua.nix"
+    "/home/nestor/.config/nix/languages/notes.nix"
   ];
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;

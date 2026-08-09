@@ -82,6 +82,7 @@
 	};
   environment.systemPackages = with pkgs;
   [
+    wl-screenrec
     qt6Packages.qt6ct
     libsForQt5.qt5ct
     kdePackages.breeze
