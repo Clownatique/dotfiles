@@ -2,7 +2,8 @@ binds {
     Mod+Y { spawn-sh "footclient -a helix -- hx" ;}
     Mod+E  { spawn-sh "footclient -a file-explorer -- nnn";}
     Mod+a { spawn-sh "bemoji";}
-    Mod+s {spawn-sh "footclient -a mopytui -- $HOME/.local/bin/mopytui --theme daylight";}
+    Mod+s {spawn-sh "footclient -a mopidy -o'main.locked-title=yes' -TMoPiDy -- $HOME/.local/bin/mopytui --theme daylight";}
+    Mod+Shift+s {spawn-sh "footclient -a cava -o'main.locked-title=yes' -TCava -- cava";}
     Mod+Space   { spawn "firefox";}
     Mod+t  { spawn-sh "footclient -- tmux";}
     Mod+Shift+T  { spawn "foot";}

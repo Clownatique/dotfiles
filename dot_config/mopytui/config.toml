@@ -7,7 +7,7 @@ mpd_port = 6600
 theme = "daylight"
 
 # Enable MPRIS integration (Linux only — no-op elsewhere).
-mpris = false
+mpris = true
 
 # Live FFT spectrum visualizer (optional). Configure mopidy's `[audio] output`
 # to `tee` the stream into a sink mopytui can read. Bit-perfect to the DAC is
