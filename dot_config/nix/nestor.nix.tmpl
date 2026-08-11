@@ -5,15 +5,17 @@
     "/home/nestor/.config/nix/system.nix" # ill probably need to modularize this a bit 
     "/home/nestor/.config/nix/locale.nix" 
     "/home/nestor/.config/nix/desktop-environment.nix" # all software and tweaks necessary to have a sleek workflow
-    # "/home/nestor/.config/nix/browsing.nix" # firefox config
     "/home/nestor/.config/nix/dev-tools.nix" # if i have to develop
-    {{ if ne .chezmoi.hostname "rabbit"  }}
-    {{ if eq .chezmoi.hostname "tiger" }}
+    {{- if eq .chezmoi.hostname "rabbit"  }}
+    "/home/nestor/.config/nix/chromium.nix" # chromebook fixes
+    {{- end }}
+    {{- if ne .chezmoi.hostname "rabbit"  }}
+    {{- if eq .chezmoi.hostname "tiger" }}
     "/home/nestor/.config/nix/entertainment.nix" # all the games i have
-    {{end}}
-    "/home/nestor/.config/nix/programmation.nix" # if i have to develop
+    "/home/nestor/.config/nix/tiger.nix"
+    {{- end}}
     "/home/nestor/.config/nix/tinkering.nix" # anything that helps me build thing in real word
     "/home/nestor/.config/nix/creative.nix" # any piece of software that helps me putting my ideas into byte
-    {{end}}
+    {{- end}}
   ];
 }

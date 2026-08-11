@@ -9,5 +9,6 @@ binds {
     Mod+Shift+T  { spawn "foot";}
     Mod+D  { spawn-sh "fuzzel";}
     Mod+Alt+L  { spawn "swaylock";}
-    Mod+z { spawn-sh "bash $HOME/.config/niri/scripts/screen-menu.sh 1>&2 $HOME/output";}
+    Mod+z { spawn-sh "bash $HOME/.config/niri/scripts/screen-menu.sh";}
+    Mod+Backspace { spawn-sh "bash $HOME/.config/niri/scripts/powermenu.sh";}
 }

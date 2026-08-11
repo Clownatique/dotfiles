@@ -29,6 +29,10 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {};
 
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   services.mopidy = {
 	enable = true;
 	extensionPackages = with pkgs; [
@@ -122,7 +126,7 @@
     mpd
     tidal-dl
     mpd-mpris
-    cavasik
+    cava
     anki
     syncthing
     ungoogled-chromium
